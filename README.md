@@ -22,6 +22,7 @@ You can always add more artists to ```spotify_artists.txt```, even after running
 ## Slowstart Documentation Guide for Code Newbies
 Coming shortly.
 
+## License
 Copyright (c) 2019 Scotty Carlson
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
