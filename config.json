@@ -1,0 +1,13 @@
+{
+  "AUTHENTIFY": {
+    "client_id": "XXXXXXXXXXXXXXX",
+    "client_secret": "XXXXXXXXXXXXXXX"
+  },
+  "MAILIFY": {
+    "from_addr": "XXXXXXXXXXXXXXX@gmail.com",
+    "to_addr": "XXXXXXXXXXXXXXX@gmail.com",
+    "em_login": "XXXXXXXXXXXXXXX",
+    "em_password": "XXXXXXXXXXXXXXX",
+    "serv_loc": "smtp.gmail.com:587"
+  }
+}
