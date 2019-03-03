@@ -160,12 +160,11 @@ for band in spotify_data['bands']:
     release_checker(band, 'album', 'latest_album', new_entries)
     release_checker(band, 'compilation', 'latest_comp', new_entries)
 
-with open('sniffer_data.json', 'w') as f:
-    json.dump(spotify_data, f)
-
 if len(new_entries) == 0:
     pass
 elif len(new_entries) >= 1:
+    with open('sniffer_data.json', 'w') as f:
+        json.dump(spotify_data, f)
     temp_list = []
     for entry in new_entries:
         entry_string = '{0} released a new {1} called \"{2}\" on {3}. Listen to it here: {4}'.format(entry['artist'], entry['kind'], entry['title'], entry['date'], entry['url'])
