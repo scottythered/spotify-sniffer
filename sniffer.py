@@ -55,18 +55,17 @@ def spotify_band_ids():
             temp_list = []
             band_ids = inputter.read().split(', ')
             for band_id in band_ids:
-                matcher = re.fullmatch('[0-9A-Za-z]{22}', band_id)
+                matcher = re.fullmatch('[0-9A-Za-z]{22}', band_id.strip())
                 if matcher:
                     pass
                 else:
                     temp_list.append(band_id)
             if len(temp_list) >= 1:
                 bad_ids = ', '.join(temp_list)
-                print('Looks like you got some Spotify artist IDs that, uh, '
-                      'aren\'t formulated well. I\'m gonna shut this down and '
-                      'you should look at these artists: {0}'.format(bad_ids))
-                sys.exit()
+                print('Looks like you got some Spotify artist IDs that, uh, aren\'t formulated well. I\'m gonna shut this down, and you should look at these artist IDs: {0}'.format(bad_ids))
             elif len(temp_list) == 0:
+                deduped_band_ids = set(band_ids)
+                band_ids = list(deduped_band_ids)
                 return band_ids
     else:
         print('You don\'t have any artists to check on! Now I have to quit!')
@@ -102,7 +101,8 @@ def release_checker(xx, yy, zz, new_entries_list):
             xx[zz]['name'] = newest_release_name
             xx[zz]['date'] = newest_release_rd
             xx[zz]['url'] = newest_release_url
-            new_entries_list.append({'artist': xx['name'], 'kind': yy, 'title': newest_release_name, 'date': newest_release_rd, 'url': newest_release_url})
+            new_entries_list.append({'artist': xx['name'], 'kind': yy, 'title': newest_release_name,
+                                     'date': newest_release_rd, 'url': newest_release_url})
     except IndexError:
         pass
 
@@ -150,7 +150,8 @@ else:
         latest_single_block = metadata_funnel(new_band, 'single')
         latest_album_block = metadata_funnel(new_band, 'album')
         latest_comp_block = metadata_funnel(new_band, 'compilation')
-        whole_entry = {'id': artist_id, 'name': artist_name, 'latest_single': latest_single_block, 'latest_album': latest_album_block, 'latest_comp': latest_comp_block}
+        whole_entry = {'id': artist_id, 'name': artist_name, 'latest_single': latest_single_block,
+                       'latest_album': latest_album_block, 'latest_comp': latest_comp_block}
         spotify_data['bands'].append(whole_entry)
 
 new_entries = []
@@ -163,8 +164,6 @@ for band in spotify_data['bands']:
 if len(new_entries) == 0:
     pass
 elif len(new_entries) >= 1:
-    with open('sniffer_data.json', 'w') as f:
-        json.dump(spotify_data, f)
     temp_list = []
     for entry in new_entries:
         entry_string = '{0} released a new {1} called \"{2}\" on {3}. Listen to it here: {4}'.format(entry['artist'], entry['kind'], entry['title'], entry['date'], entry['url'])
@@ -172,3 +171,9 @@ elif len(new_entries) >= 1:
     new_spotify_content = '\n\n'.join(temp_list)
     em_message = 'Greetings! I\'m the kindly old robot that watches over your favorite music. There\'s new stuff over at Spotify by some of your favorite artists!\n\n{0}\n\nHappy listening!\n\nCordially,\nThe Robot That Runs Spotify Sniffer'.format(new_spotify_content)
     send_email(em_message)
+
+if len(list_checker) == 0 and len(new_entries) == 0:
+    pass
+else:
+    with open('sniffer_data.json', 'w') as f:
+        json.dump(spotify_data, f)
