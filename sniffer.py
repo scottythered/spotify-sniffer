@@ -63,6 +63,7 @@ def spotify_band_ids():
             if len(temp_list) >= 1:
                 bad_ids = ', '.join(temp_list)
                 print('Looks like you got some Spotify artist IDs that, uh, aren\'t formulated well. I\'m gonna shut this down, and you should look at these artist IDs: {0}'.format(bad_ids))
+                sys.exit()
             elif len(temp_list) == 0:
                 deduped_band_ids = set(band_ids)
                 band_ids = list(deduped_band_ids)
