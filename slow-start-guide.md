@@ -22,7 +22,7 @@ If you don't have Python 3.6, there's lots of resources out there if you need to
 
 To have Sniffer fetch data from Spotify, you'll need authorization to use their application programming interface (API). In layman's terms, this means getting permission to only access their datapoints that do not touch user information. Yes, this means we can't grab any information from our personal accounts, but this also means we can get more data from Spotify without having our transactions throttled.
 
-To do this, you'll need a **Client ID** and a **Secret Key**. Visit (https://developer.spotify.com/dashboard/)[https://developer.spotify.com/dashboard/] and click *Create Client ID*. Give your client any name and description you want, but select *I Don't Know* for "What are you building?" Then tick the next boxes confirming *CREATE A NON-COMMERCIAL APP*. You'll be taken to a detail page for your new Sniffer-related app, which will have your Client ID and a button to show your Client Secret
+To do this, you'll need a **Client ID** and a **Secret Key**. Visit [https://developer.spotify.com/dashboard/](https://developer.spotify.com/dashboard/) and click *Create Client ID*. Give your client any name and description you want, but select *I Don't Know* for "What are you building?" Then tick the next boxes confirming *CREATE A NON-COMMERCIAL APP*. You'll be taken to a detail page for your new Sniffer-related app, which will have your Client ID and a button to show your Client Secret
 
 Once you have these, go back to your repo folder, open ```config.json```, and enter these credentials in the ```AUTHENTIFY``` object.
 
@@ -30,4 +30,15 @@ Once you have these, go back to your repo folder, open ```config.json```, and en
 
 You'll need an email address to send/receive each update. In the config file, enter your sending-from address (```from_addr```), sending-to address (```to_addr```), email account login (```em_login```), password (```em_password```), and your SMTP email server (```serv_loc```).
 
-Gmail's SMTP server is in ```serv_loc``` by default; if you use a different email service, have a look at (this link)[https://serversmtp.com/what-is-my-smtp/] to find out what it is.
+Gmail's SMTP server is in ```serv_loc``` by default; if you use a different email service, have a look at [this link](https://serversmtp.com/what-is-my-smtp/) to find out what it is.
+
+Note: if you use Gmail and your account is fairly secure, you'll probably get an error response saying that you need to log in to continue. You can circumvent this by visiting [Account Security Settings](https://www.google.com/settings/security/lesssecureapps) and enabling *Access for Less Secure Apps*. This will allow you to use the Gmail SMTP for our script; it also has the side effect of slightly making your account less secure. **I strongly advise you to create a secondary Gmail account used solely to send Sniffer emails!**
+
+4. **Find Artists You Want to Track**
+
+Because our API usage does not allow us to access user accounts, you will need to pre-load Sniffer with a selection of your favorite artists before you run the script.
+
+Spotify artists each have a unique 22-character alphanumeric ID; you find this by looking at the Spotify web player URL for an artist. For example, the Spotify ID of Guided By Voices is: ```https://open.spotify.com/artist/4oV5EVJ0XFWsJKoOvdRPvl -> **4oV5EVJ0XFWsJKoOvdRPvl**```
+
+place your artist IDs in the spotify_artists.txt file, separated by commas. (For convenience, I have provided a text file with some 8,700 Spotify artist IDs (bands.tsv) that I ripped from Wikidata.)
+
