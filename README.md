@@ -18,7 +18,7 @@ EMAIL_TO = 'XXX@gmail.com'
 ```
 
 4. **Start adding artists.** Sniffer uses Spotify's *Client Credentials Flow* API, which gives us a considerably higher API rate limit than its other methods; unfortunately, this track does not allow us to access user accounts. Thus, you will need to load Sniffer with a selection of your favorite artists to check up on before you get started. Spotify artists each have a unique 22-character alphanumeric ID; place your artist IDs in the ```spotify_artists.txt``` file, separated by commas. (For convenience, I have provided a text file with some 8,700 Spotify artist IDs (```bands.tsv```) that I ripped from Wikidata.)
-5. **Run ```sniffer_run.py```.** The script will create a JSON file that will store the latest releases of your artists in ```spotify_artists.txt```.
+5. **Run ```sniffer_run.py```.** The script will create a JSON file that will store the latest releases of the artists you added to ```spotify_artists.txt```.
 6. **Run ```sniffer_run.py``` as often as you want.** Get updates about new music.
 
 You can always add more artists to ```spotify_artists.txt```, even after running the setup script. Each time you run ```sniffer_run.py```, new artist IDs will be added to your local JSON data and will be checked in your next Sniffer run.
