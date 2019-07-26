@@ -7,7 +7,7 @@ Each time the script is run, Sniffer uses Spotify's web API to check up on the l
 ## Requirements
 Sniffer was written for Python 3.6+. The only library used that isn't a part of the standard library is **Requests**.
 
-You'll also need an email account, a Spotify account with authorization credentials (see below), and a passing interest in music.
+You'll also need a gmail account, a Spotify account with authorization credentials (see below), and a passing interest in music.
 
 ## Quickstart
 1. **Download/clone this repo.** Make sure you have Requests installed and Python 3.6+.
