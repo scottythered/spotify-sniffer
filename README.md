@@ -5,9 +5,7 @@ Spotify Sniffer is a lightweight script that sniffs out new releases on Spotify.
 Each time the script is run, Sniffer uses Spotify's web API to check up on the latest album, single, and complilation released by any artist you ask for. If something new has been released since you last ran it, you'll get an email with links to the new music. Use it with crontab or some other scheduling software to sniff out new music on a regular basis.
 
 ## Requirements
-Sniffer was written for Python 3.6+. The only library used that isn't a part of the standard library is **Requests**.
-
-You'll also need a gmail account, a Spotify account with authorization credentials (see below), and a passing interest in music.
+Sniffer was written for Python 3.6+. You'll also need a gmail account, a Spotify account with authorization credentials (see below), and a passing interest in music.
 
 ## Quickstart
 1. **Download/clone this repo.** Install the dependencies found in the ```requirements.txt``` file.
