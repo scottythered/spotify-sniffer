@@ -24,7 +24,7 @@ EMAIL_TO = 'XXX@gmail.com'
 You can always add more artists to ```spotify_artists.txt```, even after running the setup script. Each time you run ```sniffer_run.py```, new artist IDs will be added to your local JSON data and will be checked in your next Sniffer run.
 
 ## Slowstart Documentation Guide for Code Newbies
-[Now available!](https://github.com/scottythered/spotify-sniffer/blob/master/slow-start-guide.md)
+TO DO
 
 ## License
 Copyright (c) 2019 Scotty Carlson
