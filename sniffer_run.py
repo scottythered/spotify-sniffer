@@ -37,8 +37,8 @@ def main():
                                             entry['title'], entry['date'], entry['url'])
             temp_list.append(entry_string)
         new_spotify_content = '\n\n'.join(temp_list)
-        EMAIL_FROM = 'dlfclearinghouse@gmail.com'
-        EMAIL_TO = 'scottythered@gmail.com'
+        EMAIL_FROM = spotSniff.config_check()['MAILIFY']['EMAIL_FROM']
+        EMAIL_TO = spotSniff.config_check()['MAILIFY']['EMAIL_TO']
         EMAIL_SUBJECT = 'New Music is Waiting for You at Spotify'
         EMAIL_CONTENT = 'Greetings! I\'m the kindly old robot that watches over your favorite music. '\
         'There\'s new stuff over at Spotify by some of your favorite artists!\n\n{0}\n\nHappy listening!\n\n'\
