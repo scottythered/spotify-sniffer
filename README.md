@@ -18,7 +18,7 @@ Sniffer was written for Python 3.6+. You'll also need a Gmail account, a Spotify
 You can always add more artists to ```spotify_artists.txt```, even after running the setup script. Each time you run ```sniffer_run.py```, new artist IDs will be added to your local JSON data and will be checked in your next Sniffer run.
 
 ## Slowstart Documentation Guide for Code Newbies
-TO DO
+[Now up and running!](https://github.com/scottythered/spotify-sniffer/blob/master/slow-start-guide.md)
 
 ## License
 Copyright (c) 2019 Scotty Carlson
