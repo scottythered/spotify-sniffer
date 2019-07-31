@@ -5,18 +5,12 @@ Spotify Sniffer is a lightweight script that sniffs out new releases on Spotify.
 Each time the script is run, Sniffer uses Spotify's web API to check up on the latest album, single, and complilation released by any artist you ask for. If something new has been released since you last ran it, you'll get an email with links to the new music. Use it with crontab or some other scheduling software to sniff out new music on a regular basis.
 
 ## Requirements
-Sniffer was written for Python 3.6+. You'll also need a gmail account, a Spotify account with authorization credentials (see below), and a passing interest in music.
+Sniffer was written for Python 3.6+. You'll also need a Gmail account, a Spotify account with authorization credentials (see below), and a passing interest in music.
 
 ## Quickstart
-1. **Download/clone this repo.** Install the dependencies found in the ```requirements.txt``` file.
-2. **Add your credentials.** In the ```config.json``` file, enter your Spotify account authorization credentials in the ```AUTHENTIFY``` object. Sniffer uses Spotify's *Client Credentials Flow* API. (If you don't know what this is, [see here](https://developer.spotify.com/documentation/general/guides/authorization-guide/).)
-3. **Set up your Gmail token.** You'll also need a gmail address to send/receive each update. Run the ```gmail-token.py``` script (written primarily by Google) to generate pickled Gmail API access credentials. Then, in the ```sniffer_run.py``` file, enter your sending-from and sending-to addresses:
-
-```
-EMAIL_FROM = 'XXX@gmail.com'
-EMAIL_TO = 'XXX@gmail.com'
-```
-
+1. **Download/clone this repo** and install the dependencies.
+2. **Add your credentials.** In the ```config.json``` file, enter your Spotify account authorization credentials in the ```AUTHENTIFY``` object. Sniffer uses Spotify's *Client Credentials Flow* API. (If you don't know what this is, [see here](https://developer.spotify.com/documentation/general/guides/authorization-guide/).) Then, in the ```sniffer_run.py``` file, enter your sending-from and sending-to addresses to the ```MAILIFY``` object.
+3. **Set up your Gmail token.** Run the ```gmail-token.py``` script (written primarily by Google) to generate pickled Gmail API access credentials.
 4. **Start adding artists.** Sniffer uses Spotify's *Client Credentials Flow* API, which gives us a considerably higher API rate limit than its other methods; unfortunately, this track does not allow us to access user accounts. Thus, you will need to load Sniffer with a selection of your favorite artists to check up on before you get started. Spotify artists each have a unique 22-character alphanumeric ID; place your artist IDs in the ```spotify_artists.txt``` file, separated by commas. (For convenience, I have provided a text file with some 8,700 Spotify artist IDs (```bands.tsv```) that I ripped from Wikidata.)
 5. **Run ```sniffer_run.py```.** The script will create a JSON file that will store the latest releases of the artists you added to ```spotify_artists.txt```.
 6. **Run ```sniffer_run.py``` as often as you want.** Get updates about new music.
